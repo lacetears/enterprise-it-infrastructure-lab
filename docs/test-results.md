@@ -7,7 +7,7 @@ Source validation performed 2026-11-10. These results are not deployment evidenc
 | PowerShell parser + offline assertions | PowerShell 7.4.13 on Linux | 12 PowerShell files parsed; 22 assertions passed |
 | Addressing and ACL policy evaluator | Python 3.12 on Linux | Seven network tests passed, including 17 packet-policy cases |
 | Documentation links / scenario structure / prohibited artifact extensions | Python 3.12 on Linux | Passed; 10 total Python tests including seven network tests |
-| Windows PowerShell 5.1 + PowerShell 7 CI | GitHub Actions Windows runner | Pending initial published run |
+| Windows PowerShell 5.1 + PowerShell 7 CI | GitHub Actions Windows runner | Passed in both shells: 12 files parsed and 22 assertions per shell |
 | AD DS/DNS/DHCP promotion and operation | Windows Server 2022 VM | Not run |
 | GPO, domain join, share permissions, account lifecycle | Live Windows domain | Not run |
 | Router/switch command acceptance and actual forwarding | Cisco Packet Tracer | Not run |
@@ -28,3 +28,7 @@ powershell -NoProfile -File tests/Test-Offline.ps1
 ```
 
 The final command requires Windows. GitHub Actions runs both Windows shells with read-only repository permissions. No domain changes are performed by CI.
+
+## Published CI evidence
+
+[Successful validation run](https://github.com/lacetears/enterprise-it-infrastructure-lab/actions/runs/42918314781) for commit `90e1e84721592b2d95791f057cbf074af785a4cf`: Python job passed; Windows PowerShell 5.1 and PowerShell 7 steps both passed. The first workflow attempt was rejected before execution because its shell expression was unsupported; replacing it with explicit shell steps fixed that configuration error. No live domain was used by these tests.
