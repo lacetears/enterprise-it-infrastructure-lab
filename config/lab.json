@@ -1,0 +1,46 @@
+{
+  "domain": "lab.example.test",
+  "netbios": "LAB",
+  "dc": "DC01",
+  "dcAddress": "10.10.40.10",
+  "fileServer": "FS01",
+  "fileServerAddress": "10.10.40.11",
+  "vlans": [
+    {
+      "id": 10,
+      "name": "Employees",
+      "network": "10.10.10.0/24",
+      "gateway": "10.10.10.1",
+      "start": "10.10.10.100",
+      "end": "10.10.10.199",
+      "dhcp": "server"
+    },
+    {
+      "id": 20,
+      "name": "IT",
+      "network": "10.10.20.0/27",
+      "gateway": "10.10.20.1",
+      "start": "10.10.20.10",
+      "end": "10.10.20.29",
+      "dhcp": "server"
+    },
+    {
+      "id": 30,
+      "name": "Guests",
+      "network": "10.10.30.0/24",
+      "gateway": "10.10.30.1",
+      "start": "10.10.30.100",
+      "end": "10.10.30.199",
+      "dhcp": "router"
+    },
+    {
+      "id": 40,
+      "name": "Servers",
+      "network": "10.10.40.0/27",
+      "gateway": "10.10.40.1",
+      "start": null,
+      "end": null,
+      "dhcp": "static"
+    }
+  ]
+}

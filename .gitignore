@@ -1,0 +1,8 @@
+evidence/local/
+*.evtx
+*.vhd*
+*.iso
+*.pkt
+*.pfx
+*.key
+__pycache__/

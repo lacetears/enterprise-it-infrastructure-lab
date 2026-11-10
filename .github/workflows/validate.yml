@@ -1,0 +1,23 @@
+name: Validate lab source
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  network:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s tests -v
+  powershell:
+    runs-on: windows-latest
+    strategy:
+      matrix:
+        shell: [powershell, pwsh]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Parse and run offline assertions (no domain changes)
+        shell: ${{ matrix.shell }}
+        run: ./tests/Test-Offline.ps1

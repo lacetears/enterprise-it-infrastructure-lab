@@ -1,0 +1,172 @@
+[
+  {
+    "name": "employee DNS UDP",
+    "acl": "EMPLOYEE_IN",
+    "protocol": "udp",
+    "source": "10.10.10.100",
+    "sport": 50000,
+    "destination": "10.10.40.10",
+    "dport": 53,
+    "permit": true
+  },
+  {
+    "name": "employee DNS TCP",
+    "acl": "EMPLOYEE_IN",
+    "protocol": "tcp",
+    "source": "10.10.10.100",
+    "sport": 50000,
+    "destination": "10.10.40.10",
+    "dport": 53,
+    "permit": true
+  },
+  {
+    "name": "employee SMB",
+    "acl": "EMPLOYEE_IN",
+    "protocol": "tcp",
+    "source": "10.10.10.100",
+    "sport": 50000,
+    "destination": "10.10.40.11",
+    "dport": 445,
+    "permit": true
+  },
+  {
+    "name": "employee to IT blocked",
+    "acl": "EMPLOYEE_IN",
+    "protocol": "tcp",
+    "source": "10.10.10.100",
+    "sport": 50000,
+    "destination": "10.10.20.10",
+    "dport": 3389,
+    "permit": false
+  },
+  {
+    "name": "employee to guest blocked",
+    "acl": "EMPLOYEE_IN",
+    "protocol": "tcp",
+    "source": "10.10.10.100",
+    "sport": 50000,
+    "destination": "10.10.30.100",
+    "dport": 80,
+    "permit": false
+  },
+  {
+    "name": "guest internal DNS blocked",
+    "acl": "GUEST_IN",
+    "protocol": "udp",
+    "source": "10.10.30.100",
+    "sport": 50000,
+    "destination": "10.10.40.10",
+    "dport": 53,
+    "permit": false
+  },
+  {
+    "name": "guest DC SMB blocked",
+    "acl": "GUEST_IN",
+    "protocol": "tcp",
+    "source": "10.10.30.100",
+    "sport": 50000,
+    "destination": "10.10.40.10",
+    "dport": 445,
+    "permit": false
+  },
+  {
+    "name": "guest IT blocked",
+    "acl": "GUEST_IN",
+    "protocol": "tcp",
+    "source": "10.10.30.100",
+    "sport": 50000,
+    "destination": "10.10.20.2",
+    "dport": 22,
+    "permit": false
+  },
+  {
+    "name": "guest employee blocked",
+    "acl": "GUEST_IN",
+    "protocol": "tcp",
+    "source": "10.10.30.100",
+    "sport": 50000,
+    "destination": "10.10.10.100",
+    "dport": 80,
+    "permit": false
+  },
+  {
+    "name": "guest web allowed",
+    "acl": "GUEST_IN",
+    "protocol": "tcp",
+    "source": "10.10.30.100",
+    "sport": 50000,
+    "destination": "198.51.100.10",
+    "dport": 80,
+    "permit": true
+  },
+  {
+    "name": "guest HTTPS allowed",
+    "acl": "GUEST_IN",
+    "protocol": "tcp",
+    "source": "10.10.30.100",
+    "sport": 50000,
+    "destination": "198.51.100.10",
+    "dport": 443,
+    "permit": true
+  },
+  {
+    "name": "guest DNS allowed",
+    "acl": "GUEST_IN",
+    "protocol": "udp",
+    "source": "10.10.30.100",
+    "sport": 50000,
+    "destination": "198.51.100.10",
+    "dport": 53,
+    "permit": true
+  },
+  {
+    "name": "guest DNS TCP allowed",
+    "acl": "GUEST_IN",
+    "protocol": "tcp",
+    "source": "10.10.30.100",
+    "sport": 50000,
+    "destination": "198.51.100.10",
+    "dport": 53,
+    "permit": true
+  },
+  {
+    "name": "guest other external blocked",
+    "acl": "GUEST_IN",
+    "protocol": "tcp",
+    "source": "10.10.30.100",
+    "sport": 50000,
+    "destination": "198.51.100.20",
+    "dport": 80,
+    "permit": false
+  },
+  {
+    "name": "spoofed source blocked",
+    "acl": "GUEST_IN",
+    "protocol": "tcp",
+    "source": "10.10.20.10",
+    "sport": 50000,
+    "destination": "198.51.100.10",
+    "dport": 80,
+    "permit": false
+  },
+  {
+    "name": "guest initial DHCP",
+    "acl": "GUEST_IN",
+    "protocol": "udp",
+    "source": "0.0.0.0",
+    "sport": 68,
+    "destination": "255.255.255.255",
+    "dport": 67,
+    "permit": true
+  },
+  {
+    "name": "employee initial DHCP",
+    "acl": "EMPLOYEE_IN",
+    "protocol": "udp",
+    "source": "0.0.0.0",
+    "sport": 68,
+    "destination": "255.255.255.255",
+    "dport": 67,
+    "permit": true
+  }
+]
