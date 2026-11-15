@@ -32,3 +32,7 @@ The final command requires Windows. GitHub Actions runs both Windows shells with
 ## Published CI evidence
 
 [Successful validation run](https://github.com/lacetears/enterprise-it-infrastructure-lab/actions/runs/42918314781) for commit `90e1e84721592b2d95791f057cbf074af785a4cf`: Python job passed; Windows PowerShell 5.1 and PowerShell 7 steps both passed. The first workflow attempt was rejected before execution because its shell expression was unsupported; replacing it with explicit shell steps fixed that configuration error. No live domain was used by these tests.
+
+## Review validation — 15 November 2026
+
+Python 3.12 on Linux: 13 unittest methods passed, including both design variants, 11 deliberately broken design/pool variants, 21 departmental packet-policy cases and the original 17 ACL cases. Both `tools/check_design.py network` and `tools/check_design.py network/departments` passed. These remain offline source checks. No Packet Tracer or live Windows acceptance was run. PowerShell is unavailable in this review environment; the earlier CI result above is historical, not a fresh local run.
