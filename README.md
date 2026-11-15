@@ -33,6 +33,10 @@ flowchart TB
 
 These are two complementary tracks, not one connected deployment. Track A uses Server-PT to model DHCP/DNS, **not** Active Directory. Track B puts its VMs on one private subnet to make Windows exercises reproducible without routing hardware. The VLAN security boundary is tested only in Track A. A routed VM extension would require a real virtual router/firewall and a new validation pass.
 
+## Departmental extension
+
+The [six-department variant](docs/departments.md) adds Administration, HR and Finance segmentation without replacing the original four-VLAN baseline. It includes separate configs, DHCP pools, cross-file checks and [six network fault exercises](docs/network-troubleshooting.md). Both variants still need Packet Tracer acceptance. See [configuration backup/recovery](docs/config-backups.md) and the [improvement plan](docs/improvement-plan.md).
+
 ## Start here
 
 1. Read [scope and security](SECURITY.md) and [architecture](docs/architecture.md).
