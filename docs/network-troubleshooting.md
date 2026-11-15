@@ -20,11 +20,11 @@ All six are **simulated incidents, not executed**. The listed root causes belong
 
 **Rollback/evidence:** Reopen the saved baseline if recovery fails. Record before/after configuration, actual output, date, simulator version and commit. Result: NOT RUN.
 
-## N2: Incorrect DHCP address
+## N2: Incorrect DHCP options
 
-**Symptoms:** HR01 receives 10.10.60.x or 169.254.x.x.
+**Symptoms:** HR01 receives a 10.10.50.x lease but the gateway option is 10.10.60.1; routed access fails.
 
-**Likely causes:** Wrong VLAN, competing pool, stale static setting, missing relay or exhausted pool.
+**Likely causes:** Incorrect scope options, a competing DHCP source or stale client configuration. A lease in the wrong subnet or 169.254.x.x requires a separate VLAN/relay/allocation investigation.
 
 **Diagnostic commands:** `ipconfig /all; ipconfig /release; ipconfig /renew; show running-config; show ip dhcp binding`
 
